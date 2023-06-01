@@ -69,6 +69,15 @@ function build() {
         }
     }
 
-    console.log(array2D);
-    $('#level').text(array2D);
+    // console.log(array2D);
+    
+    const levelAsJSON = JSON.stringify(array2D);
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(levelAsJSON);
+    // console.log("Data String", dataStr);
+
+    // https://stackoverflow.com/a/30800715/2895831
+    var dlAnchorElem = document.getElementById('downloadAnchorElem');
+    dlAnchorElem.setAttribute("href", dataStr);
+    dlAnchorElem.setAttribute("download", "level.json");
+    dlAnchorElem.click();
 }

@@ -23,10 +23,10 @@
 
         <div class="controls">
             <div>
-                <label for="cols">Columns</label> <input id="cols" type="number" value="1" />
+                <label for="cols">Columns</label> <input id="cols" type="number" value="20" />
             </div>
             <div>
-                <label for="rows">Rows</label> <input id="rows" type="number" value="1" />
+                <label for="rows">Rows</label> <input id="rows" type="number" value="20" />
             </div>
             <div>
                 <label for="gap">Gap size</label> <input id="gap" type="text" value="0px" />
@@ -45,16 +45,16 @@
                     <label for="wall">Wall</label>
                 
                     <input type="radio" id="boulder" name="choice" value="b">
-                    <label for="wall">Boulder</label>
+                    <label for="boulder">Boulder</label>
                 
                     <input type="radio" id="home" name="choice" value="h">
-                    <label for="wall">Home</label>
+                    <label for="home">Home</label>
                 
                     <input type="radio" id="player" name="choice" value="p">
-                    <label for="wall">Player</label>
+                    <label for="player">Player</label>
                 
                     <input type="radio" id="empty" name="choice" value="">
-                    <label for="wall">Empty</label>
+                    <label for="empty">Empty</label>
                 </div>
             </fieldset>
         </div>
@@ -67,7 +67,10 @@
 
         <hr />
 
-        <div id="level"></div>
+        <div id="level">
+            <input type="hidden" val="" id="levelData" />
+            <a id="downloadAnchorElem" style="display:none"></a>
+        </div>
 
         <hr />
 
