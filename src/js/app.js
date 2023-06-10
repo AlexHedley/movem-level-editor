@@ -20,10 +20,21 @@ function createGrids() {
     
     for (let i = 1; i <= divCount; i++) {
         var divElement = document.createElement("div");
+        // var background = createImage();
+        // divElement.append(background);
         $(".grid").append(divElement);
     }
 
     setStyle();
+}
+
+function createImage() {
+    var x = document.createElement("img");
+    x.setAttribute("src", "images/tiles/Background.png");
+    x.setAttribute("height", "32");
+    x.setAttribute("width", "32");
+    x.setAttribute("alt", "Background");
+    return x;
 }
 
 function setStyle() {
