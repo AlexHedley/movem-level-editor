@@ -1,27 +1,105 @@
 .grid {
-    display: grid;
-    background-color: #F8F9FA;
-    height: calc(100vh - 64px);
+  display: grid;
+  background-color: #f8f9fa;
+  height: calc(100vh - 64px);
 }
 
 .grid > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightblue;
 }
 
 .grid > div {
-    border: 1px solid #FFF3D4;
+  border: 1px solid #fff3d4;
 }
 
 .controls {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 0;
 }
 
 label {
-    margin-right: 5px;
+  margin-right: 5px;
 }
+
+/* - - - - - */
+
+@font-face {
+  font-family: "Movem";
+  src: url("../fonts/Movem.ttf");
+}
+
+/* body {
+  background: black;
+  font-family: "Movem";
+  color: #ec8829;
+  font-size: 2em;
+} */
+
+body {
+    font-family: "Movem";
+}
+
+/* .title {
+  color: #eb1588;
+  font-size: 2em;
+} */
+
+#man {
+  display: block;
+  /* border: 3px double rgb(0,255,0); */
+  margin-top: 5px;
+
+  -moz-animation-delay: 1s;
+  -moz-animation-duration: 10s;
+  -moz-animation-name: newPosition;
+  -moz-animation-fill-mode: forwards;
+  -moz-animation-iteration-count: infinite;
+
+  -webkit-animation-delay: 1s;
+  -webkit-animation-duration: 10s;
+  -webkit-animation-name: newPosition;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+
+  animation-delay: 1s;
+  animation-duration: 10s;
+  animation-name: newPosition;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+}
+
+@-moz-keyframes newPosition {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 1000px;
+  }
+}
+@-webkit-keyframes newPosition {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 1000px;
+  }
+}
+@keyframes newPosition {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 1000px;
+  }
+}
+
+/* pinkColour #EB1588 */
+/* goldColour #ec8829 */
+/* redColour #541213 */
+/* purpleColour #651297 */
+/* greyColour #424762 */
