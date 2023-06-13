@@ -1,8 +1,51 @@
+// 
+const typesArray = [
+    { name: 'Wall', image: 'Wall.png', value: 'W' },
+    { name: 'Background', image: 'Background.png', value: 'B' },
+    { name: 'Player', image: 'Man_Down.png', value: 'P' },
+    { name: 'Goal', image: 'Goal.png', value: 'G' },
+]
 
 $(()=>{
 
+    const createImage = (type = 'B') => {
+        const x = document.createElement("img");
+        
+        const imageForType = typesArray.find(x => x.value === type);
+
+        if (!imageForType) {
+            console.error("No image found for type", type);
+            return;
+        }
+        
+        x.setAttribute("src", `images/tiles/${imageForType.image}`);
+        x.setAttribute("height", "32");
+        x.setAttribute("width", "32");
+        x.setAttribute("alt", type);
+        return x;
+    }
+
     $(".grid").on('click', 'div', function (event) {
-        this.innerHTML = getChoice();
+        
+        const $this = $(this);
+        const isSelected = $this.hasClass('selected');
+
+        console.log("isSelected", isSelected);
+
+        if (!isSelected) {
+            const choice = getChoice();
+            const image = createImage(choice.toUpperCase());
+            $this.addClass('selected');
+            $this.append(image);
+            $this.data('choice', choice);
+            return;
+        }
+
+        $this.removeClass('selected');
+        $this.data('choice', '');
+        $this.empty();
+
+        //this.innerHTML = getChoice();
     });
 
 });
@@ -28,14 +71,7 @@ function createGrids() {
     setStyle();
 }
 
-function createImage() {
-    var x = document.createElement("img");
-    x.setAttribute("src", "images/tiles/Background.png");
-    x.setAttribute("height", "32");
-    x.setAttribute("width", "32");
-    x.setAttribute("alt", "Background");
-    return x;
-}
+
 
 function setStyle() {
     var style = buildStlye();
@@ -58,11 +94,15 @@ function getChoice() {
 function build() {
     var items = '';
     $('.grid div').each(function(e) {
-        var val = this.innerHTML;
-        if (val === '')
+        const $this = $(this);
+        const choice = $this.data('choice');
+        
+        if (!choice) {
             items += ' ';
-        else
-            items += val;
+        } else {
+            items += choice;
+        }
+        
     });
 
     // https://stackoverflow.com/a/58138244/2895831
